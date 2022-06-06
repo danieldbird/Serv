@@ -4,6 +4,7 @@ import { getUserById } from '../../../utils/api'
 const afterCallback = async (req, res, session, state) => {
   const registered = await getUserById(session.user.sub)
   session.user.registered = registered.length ? true : false
+  session.user.data = registered.length ? registered[0] : {}
   delete session.refreshToken
   return session
 }
