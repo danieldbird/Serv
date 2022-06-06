@@ -4,7 +4,7 @@ import { useUser } from '@auth0/nextjs-auth0'
 function Header() {
   const { user, error, isLoading } = useUser()
   return (
-    <header className="container mx-auto py-6 px-10 bg-green-700 text-white">
+    <header className="container mx-auto py-2 px-10 bg-green-700 text-white">
       <nav className="flex items-center justify-between">
         <Link href="/">
           <h1 className="text-2xl font-bold" role="button">
@@ -33,6 +33,11 @@ function Header() {
             </>
           ) : (
             <>
+              <li className="py-2 px-4">
+                <Link href="/jobs" className="py-2 px-4">
+                  Jobs
+                </Link>
+              </li>
               <li className="py-2 px-4">
                 <Link href="/dashboard" className="py-2 px-4">
                   Dashboard

@@ -43,6 +43,14 @@ export default function Register({ user }) {
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const session = getSession(ctx.req, ctx.res)
+    if (session.user.registered) {
+      return {
+        redirect: {
+          destination: '/dashboard',
+          permanent: false,
+        },
+      }
+    }
     return {
       props: { user: session },
     }

@@ -1,10 +1,10 @@
 import { handleAuth, handleLogin, handleCallback } from '@auth0/nextjs-auth0'
-import { getUserById } from '../../../utils/api'
+import { fetchUserById } from '../../../utils/api'
 
 const afterCallback = async (req, res, session, state) => {
-  const registered = await getUserById(session.user.sub)
+  const registered = await fetchUserById(session.user.sub)
   session.user.registered = registered.length ? true : false
-  session.user.data = registered.length ? registered[0] : {}
+  // session.user.data = registered.length ? registered[0] : {}
   delete session.refreshToken
   return session
 }
