@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 import { useUser } from '@auth0/nextjs-auth0'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 function Header() {
   const { user, error, isLoading } = useUser()
   return (
@@ -33,22 +35,16 @@ function Header() {
             </>
           ) : (
             <>
-              <li className="py-2 px-4">
-                <Link href="/jobs" className="py-2 px-4">
-                  Jobs
+              <li className="py-2 px-4 text-sm">
+                <Link href="/preferences" className="py-2 px-4">
+                  {user.email}
                 </Link>
               </li>
-              <li className="py-2 px-4">
-                <Link href="/dashboard" className="py-2 px-4">
-                  Dashboard
-                </Link>
-              </li>
-              <li className="py-2 px-4">
+              <li className="py-2 px-4 cursor-pointer">
                 <Link href="/api/auth/logout" className="py-2 px-4">
-                  Logout
+                  <FontAwesomeIcon icon={faRightFromBracket} />
                 </Link>
               </li>
-              <li className="py-2 px-4">{user.email}</li>
             </>
           )}
         </ul>

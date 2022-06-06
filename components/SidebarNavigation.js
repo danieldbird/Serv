@@ -14,7 +14,7 @@ import {
 function SidebarNavigation() {
   return (
     <nav className="bg-[#222] w-16 sm:w-60">
-      <ul className="my-10 ml-6  text-[#bbb] border-l border-gray-500">
+      <ul className="my-6 ml-6  text-[#bbb] border-l border-gray-500">
         <li className="my-4 hover:text-[#f1f1f1] hover:border-l hover:border-white hover:ml-[-1px] pl-4 cursor-pointer">
           <Link href="/dashboard" className="">
             <div>
@@ -23,7 +23,7 @@ function SidebarNavigation() {
             </div>
           </Link>
         </li>
-        <li className="my-4 hover:text-[#f1f1f1] hover:border-l hover:border-white hover:ml-[-1px] pl-4 cursor-pointer">
+        <li className="mt-6 my-4 hover:text-[#f1f1f1] hover:border-l hover:border-white hover:ml-[-1px] pl-4 cursor-pointer">
           <Link href="/jobs" className="py-2 px-4">
             <div>
               <FontAwesomeIcon icon={faWrench} className="pr-3" />
@@ -39,7 +39,7 @@ function SidebarNavigation() {
             </div>
           </Link>
         </li>
-        <li className="my-4 hover:text-[#f1f1f1] hover:border-l hover:border-white hover:ml-[-1px] pl-4 cursor-pointer">
+        <li className="mt-6 my-4 hover:text-[#f1f1f1] hover:border-l hover:border-white hover:ml-[-1px] pl-4 cursor-pointer">
           <Link href="/quotes" className="py-2 px-4">
             <div>
               <FontAwesomeIcon icon={faReceipt} className="pr-3" />
@@ -55,7 +55,7 @@ function SidebarNavigation() {
             </div>
           </Link>
         </li>
-        <li className="my-4 hover:text-[#f1f1f1] hover:border-l hover:border-white hover:ml-[-1px] pl-4 cursor-pointer">
+        <li className="mt-6 my-4 hover:text-[#f1f1f1] hover:border-l hover:border-white hover:ml-[-1px] pl-4 cursor-pointer">
           <Link href="/preferences" className="py-2 px-4">
             <div>
               <FontAwesomeIcon icon={faGears} className="pr-3" />
