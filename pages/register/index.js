@@ -29,6 +29,7 @@ export default function Register({ user }) {
             />
           </div>
           <div className="input-group">
+            <label htmlFor="">Used to show jobs nearest to you.</label>
             <input type="text" name="address" placeholder="Address" />
           </div>
           <div className="input-group">

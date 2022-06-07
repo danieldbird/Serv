@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React from 'react'
+import { forwardRef } from 'react'
 import { useUser } from '@auth0/nextjs-auth0'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
@@ -42,7 +42,9 @@ function Header() {
               </li>
               <li className="py-2 px-4 cursor-pointer">
                 <Link href="/api/auth/logout" className="py-2 px-4">
-                  <FontAwesomeIcon icon={faRightFromBracket} />
+                  <a>
+                    <FontAwesomeIcon icon={faRightFromBracket} />
+                  </a>
                 </Link>
               </li>
             </>
