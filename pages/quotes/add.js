@@ -5,7 +5,7 @@ function AddQuote() {
   return (
     <>
       <Head>
-        <title>Serv. - Add Quote</title>
+        <title>Add Quote - Serv</title>
         <meta name="description" content="Add Quote" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

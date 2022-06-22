@@ -1,73 +1,48 @@
 import React from 'react'
-import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api'
+import { useEffect, useRef } from 'react'
+import Head from 'next/head'
+import { fetchAllJobs } from '../../utils/api'
 
-const containerStyle = {
-  width: '100%',
-}
-
-const center = {
-  lat: -36.848,
-  lng: 174.764,
-}
-
-const markers = [
-  {
-    lat: -36.848,
-    lng: 174.764,
-  },
-  {
-    lat: -36.868,
-    lng: 174.744,
-  },
-  {
-    lat: -36.828,
-    lng: 174.798,
-  },
-  {
-    lat: -36.788,
-    lng: 174.718,
-  },
-  {
-    lat: -36.883,
-    lng: 174.789,
-  },
-  {
-    lat: -36.898,
-    lng: 174.714,
-  },
-  {
-    lat: -36.87,
-    lng: 174.62,
-  },
-  {
-    lat: -36.89,
-    lng: 174.65,
-  },
-  {
-    lat: -36.86,
-    lng: 174.86,
-  },
-  {
-    lat: -36.93,
-    lng: 174.84,
-  },
-]
-
-function MyComponent({ zoom }) {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: 'AIzaSyDrIYNCFAmYmOAqcX7BlEPJginT9n9uU1c',
+export default function Map() {
+  const googlemap = useRef(null)
+  useEffect(() => {
+    fetchAllJobs()
+      .then((jobs) => {
+        var infowindow = new google.maps.InfoWindow()
+        let map = new google.maps.Map(googlemap.current, {
+          center: { lat: -36.848, lng: 174.764 },
+          zoom: 11,
+        })
+        jobs.forEach((job) => {
+          let marker = new google.maps.Marker({
+            position: {
+              lat: Number(job.lat),
+              lng: Number(job.lng),
+            },
+            map: map,
+          })
+          marker.addListener('click', function () {
+            infowindow.setContent(`<div>
+            <a href=/jobs/${job.id} class="text-blue-500 text-xl font-medium">${job.address}, ${job.suburb}</a>
+            <p class="my-1"><strong class="font-bold">Summary:</strong> ${job.summary}</p>
+            <p class="my-1 leading-5"><strong class="font-bold">Description:</strong> ${job.description}</p>
+            </div>`)
+            infowindow.open(map, marker)
+          })
+        })
+      })
+      .catch(() => {
+        console.log('Error fetching all jobs.')
+      })
   })
-
-  return isLoaded ? (
-    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
-      {markers.map((marker, index) => {
-        return <Marker position={marker} key={index} />
-      })}
-    </GoogleMap>
-  ) : (
-    <></>
+  return (
+    <div className="w-full h-full">
+      <Head>
+        <title>Jobs Map - Serv</title>
+        <meta name="description" content="Jobs Map" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div id="map" ref={googlemap} className="w-full h-full" />
+    </div>
   )
 }
-
-export default React.memo(MyComponent)

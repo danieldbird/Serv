@@ -5,7 +5,7 @@ function Quotes() {
   return (
     <>
       <Head>
-        <title>Serv. - Quotes</title>
+        <title>Quotes - Serv</title>
         <meta name="description" content="Quotes" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

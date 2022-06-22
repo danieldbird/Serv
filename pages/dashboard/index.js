@@ -10,7 +10,7 @@ export default function Dashboard() {
   return (
     <>
       <Head>
-        <title>Serv. - Dashboard</title>
+        <title>Dashboard - Serv</title>
         <meta name="description" content="Dashboard" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

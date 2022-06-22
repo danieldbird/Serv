@@ -5,7 +5,7 @@ function Messages() {
   return (
     <>
       <Head>
-        <title>Serv. - Messages</title>
+        <title>Messages - Serv</title>
         <meta name="description" content="Messages" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

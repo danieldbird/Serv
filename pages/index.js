@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Loading from '../components/Loading'
 
-export default function Home() {
+const Home = () => {
   const { user, error, isLoading } = useUser()
   if (isLoading) return <Loading />
   if (error) return <div>{error.message}</div>
@@ -28,3 +28,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home

@@ -1,5 +1,5 @@
 export async function fetchUserById(auth0Id) {
-  const response = await fetch('http://localhost:3000/api/users/getUserById', {
+  const response = await fetch(`${process.env.HOST_URL}/api/users/getUserById`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -10,8 +10,19 @@ export async function fetchUserById(auth0Id) {
   return data
 }
 
+export async function fetchAllJobs() {
+  const response = await fetch(`${process.env.HOST_URL}/api/jobs/getAllJobs`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  const data = await response.json()
+  return data
+}
+
 export async function fetchAllJobsByUserId(auth0Id) {
-  const response = await fetch('http://localhost:3000/api/jobs/getAllJobsByUserId', {
+  const response = await fetch(`${process.env.HOST_URL}/api/jobs/getAllJobsByUserId`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

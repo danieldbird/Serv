@@ -1,11 +1,12 @@
 import { getSession, withPageAuthRequired } from '@auth0/nextjs-auth0'
 import Head from 'next/head'
+// import { AutoComplete } from '../../components/AutoComplete'
 
 export default function Register({ user }) {
   return (
     <>
       <Head>
-        <title>Serv. - Register</title>
+        <title>Register - Serv</title>
         <meta name="description" content="Registration form" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -31,6 +32,7 @@ export default function Register({ user }) {
           <div className="input-group">
             <label htmlFor="">Used to show jobs nearest to you.</label>
             <input type="text" name="address" placeholder="Address" />
+            {/* <AutoComplete /> */}
           </div>
           <div className="input-group">
             <button className="bg-blue-500 p-2 rounded text-white my-4">Register</button>

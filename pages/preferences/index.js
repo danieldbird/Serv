@@ -5,7 +5,7 @@ function Preferences() {
   return (
     <>
       <Head>
-        <title>Serv. - Preferences</title>
+        <title>Preferences - Serv</title>
         <meta name="description" content="Preferences" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
