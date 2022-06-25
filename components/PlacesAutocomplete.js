@@ -81,7 +81,7 @@ export default function PlacesAutocomplete(props) {
         onChange={handleInput}
         disabled={!ready}
         placeholder="Search address.."
-        className="w-1/2 py-2 px-4 rounded my-2 bg-gray-200"
+        className="w-1/2 py-2 px-4 rounded my-2"
       />
       {/* We can use the "status" to decide whether we should display the dropdown or not */}
       {status === 'OK' && <ul className="absolute bg-white rounded p-2">{renderSuggestions()}</ul>}

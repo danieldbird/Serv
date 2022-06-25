@@ -15,7 +15,7 @@ exports.up = function (knex) {
     table.string('accessibility')
     table.string('category')
     table.string('status')
-    table.string('created_at')
+    table.dateTime('created_at')
   })
 }
 

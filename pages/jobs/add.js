@@ -114,7 +114,7 @@ export default function Add({ user }) {
               placeholder="Accessibility.."
               required
             />
-          </div>{' '}
+          </div>
           <div className="input-group">
             <input
               type="text"

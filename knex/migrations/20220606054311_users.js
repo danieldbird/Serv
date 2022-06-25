@@ -2,7 +2,9 @@ exports.up = function (knex) {
   return knex.schema.createTable('users', (table) => {
     table.increments('id').primary()
     table.string('auth0_id')
-    table.string('username')
+    table.string('user_name')
+    table.string('first_name')
+    table.string('last_name')
     table.string('address')
     table.string('suburb')
     table.string('city')
@@ -12,6 +14,7 @@ exports.up = function (knex) {
     table.string('email')
     table.string('phone')
     table.string('user_type')
+    table.dateTime('created_at')
   })
 }
 

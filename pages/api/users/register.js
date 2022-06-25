@@ -1,14 +1,30 @@
 import db from '../../../utils/db'
 import { getSession } from '@auth0/nextjs-auth0'
 import sendgrid from '@sendgrid/mail'
+import { mySQLDateTime } from '../../../utils/time'
 
 export default async function handler(req, res) {
   const session = getSession(req, res)
-
-  const { firstName, lastName, address } = req.body
+  const {
+    auth0_id,
+    user_name,
+    first_name,
+    last_name,
+    address,
+    suburb,
+    city,
+    postcode,
+    lat,
+    lng,
+    email,
+    phone,
+    user_type,
+  } = req.body
   try {
     await db.query(
-      `INSERT INTO users VALUES (null, '${session.user.sub}', '${firstName}', '${lastName}', '${address}')`
+      `INSERT INTO users VALUES (null, '${auth0_id}', '${user_name}', '${first_name}', '${last_name}', '${address}', '${suburb}', '${city}', '${postcode}', '${lat}', '${lng}', '${email}', '${phone}', '${user_type}', '${mySQLDateTime(
+        new Date()
+      )}')`
     )
     await db.end()
     session.user.registered = true
