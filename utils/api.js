@@ -1,5 +1,5 @@
 export async function fetchUserById(auth0Id) {
-  const response = await fetch(`${process.env.HOST_URL}/api/users/getUserById`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL}/api/users/getUserById`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -11,7 +11,7 @@ export async function fetchUserById(auth0Id) {
 }
 
 export async function fetchAllJobs() {
-  const response = await fetch(`${process.env.HOST_URL}/api/jobs/getAllJobs`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL}/api/jobs/getAllJobs`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export async function fetchAllJobs() {
 }
 
 export async function fetchAllJobsByUserId(auth0Id) {
-  const response = await fetch(`${process.env.HOST_URL}/api/jobs/getAllJobsByUserId`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_HOST_URL}/api/jobs/getAllJobsByUserId`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

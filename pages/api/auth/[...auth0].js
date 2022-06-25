@@ -11,9 +11,13 @@ const afterCallback = async (req, res, session, state) => {
 
 export default handleAuth({
   async login(req, res) {
+    const { screen_hint } = req.query
     try {
       await handleLogin(req, res, {
         returnTo: '/dashboard',
+        authorizationParams: {
+          screen_hint,
+        },
       })
     } catch (error) {
       res.status(error.status || 500).end(error.message)

@@ -17,16 +17,13 @@ function Header() {
           {!user ? (
             <>
               <li className="py-2 px-4">
-                <Link
-                  href={{ pathname: '/api/auth/login', query: { method: 'login' } }}
-                  className="py-2 px-4"
-                >
+                <Link href={{ pathname: '/api/auth/login' }} className="py-2 px-4">
                   Login
                 </Link>
               </li>
               <li className="py-2 px-4">
                 <Link
-                  href={{ pathname: '/api/auth/login', query: { method: 'signup' } }}
+                  href={{ pathname: '/api/auth/login', query: { screen_hint: 'signup' } }}
                   className="py-2 px-4"
                 >
                   Sign Up
